@@ -13,9 +13,16 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npm run test:scripts && npm run lint",
+    "test:scripts": "react-scripts test --coverage --env=jsdom --watchAll=false",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.jsx"
+  },
+  "jest": { 
+    "coveragePathIgnorePatterns": [
+      "/src/serviceWorker.js", 
+      "/src/index.jsx" 
+    ] 
   },
   "eslintConfig": {
     "extends": "react-app"
